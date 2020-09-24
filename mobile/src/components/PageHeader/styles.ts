@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { color } from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
   
@@ -9,6 +8,12 @@ const styles = StyleSheet.create({
   },
 
   topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  header:{
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
