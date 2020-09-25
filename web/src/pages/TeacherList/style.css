@@ -11,8 +11,6 @@
   color: var(--color-text-in-primary);
 }
 
-
-
 #search-teachers button {
   width: 100%;
   height: 5.6rem;
@@ -34,10 +32,17 @@
   background: var(--color-secundary-dark);
 }
 
-
 #page-teacher-list main {
   margin: 3.2rem auto;
   width: 90%;
+}
+
+#page-teacher-list .msgTeacherDontFinded {
+  color: #9C98A6;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  padding: 3rem 1rem;
 }
 
 @media (min-width: 700px) {
@@ -60,5 +65,10 @@
     padding: 32px 0;
     max-width: 740px;
     margin: 0 auto;
+  }
+
+  #page-teacher-list .msgTeacherDontFinded {
+    padding: 10rem 1rem;
+    font-size: 2.5rem;
   }
 }

@@ -1,6 +1,8 @@
 #page-landing {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: -webkit-fill-available;
+  padding-bottom: 2rem;
 
   display: flex;
   justify-content: center;
@@ -90,6 +92,21 @@
 
 .total-connections img {
   margin-left: 0.8rem;
+}
+
+@media (max-width: 400px){
+  .logo-container img {
+    width: 80%;
+    margin-top: 8rem;
+  }
+  .logo-container h2 {
+    line-height: 2.6rem;
+    margin-top: 0.8rem;
+  }
+  .total-connections img {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 @media (min-width: 1100px) {

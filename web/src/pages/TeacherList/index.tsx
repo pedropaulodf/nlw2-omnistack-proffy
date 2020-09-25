@@ -37,9 +37,10 @@ function TeacherList() {
             name="subject"
             label="Matéria"
             value={subject}
-            onChange={(e) => {
-              setSubject(e.target.value);
+            onChange={(e: any) => {
+              setSubject(e.value);
             }}
+            required
             options={[
               { value: "Artes", label: "Artes" },
               { value: "Biologia", label: "Biologia" },
@@ -58,9 +59,10 @@ function TeacherList() {
             name="week-day"
             label="Dia da semana"
             value={week_day}
-            onChange={(e) => {
-              setWeekDay(e.target.value);
+            onChange={(e: any) => {
+              setWeekDay(e.value);
             }}
+            required
             options={[
               { value: "0", label: "Domingo" },
               { value: "1", label: "Segunda-feira" },
@@ -80,13 +82,16 @@ function TeacherList() {
             onChange={(e) => {
               setTime(e.target.value);
             }}
+            required
           />
           <button type="submit">Buscar</button>
         </form>
       </PageHeader>
 
       <main>
-        {teachers.map((teacher: Teacher) => {
+        {teachers.length === 0
+        ? <p className="msgTeacherDontFinded">Nenhum professor listado, faça sua busca.</p>
+        : teachers.map((teacher: Teacher) => {
           return <TeacherItem key={teacher.id} teacher={teacher} />;
         })}
 

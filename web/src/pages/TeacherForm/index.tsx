@@ -52,19 +52,19 @@ function TeacherForm() {
       alert('Erro no cadastro');
     });
 
-    console.log({
-      name,
-      avatar,
-      whatsapp,
-      bio,
-      cost,
-      subject,
-      scheduleItems
-    });
+    // console.log({
+    //   name,
+    //   avatar,
+    //   whatsapp,
+    //   bio,
+    //   cost,
+    //   subject,
+    //   scheduleItems
+    // });
   }
 
   function setScheduleItemValue(position: number,field: string,value: string) {
-console.log(position, field, value);
+    
     const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
       if (index === position) {
         return { ...scheduleItem, [field]: value };
@@ -85,27 +85,32 @@ console.log(position, field, value);
       <main>
         <form onSubmit={handleCreateClass}>
           <fieldset>
-            <legend>Seus dados</legend>
+            <legend>
+              Seus dados
+              <p className="requiredFieldsInfo">* obrigatórios</p>
+            </legend>
 
             <Input
               name="name"
-              label="Nome completo"
+              label="Nome completo *"
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
               }}
+              required
             />
             <Input
               name="avatar"
-              label="Avatar"
+              label="Avatar *"
               value={avatar}
               onChange={(e) => {
                 setAvatar(e.target.value);
               }}
+              required
             />
             <Input
               name="whatsapp"
-              label="WhatsApp"
+              label="WhatsApp *"
               value={whatsapp}
               onChange={(e) => {
                 setWhatsapp(e.target.value);
@@ -113,11 +118,12 @@ console.log(position, field, value);
             />
             <Textarea
               name="bio"
-              label="Biografia"
+              label="Biografia *"
               value={bio}
               onChange={(e) => {
                 setBio(e.target.value);
               }}
+              required
             />
           </fieldset>
           <fieldset>
@@ -125,10 +131,10 @@ console.log(position, field, value);
 
             <Select
               name="subject"
-              label="Matéria"
+              label="Matéria *"
               value={subject}
-              onChange={(e) => {
-                setSubject(e.target.value);
+              onChange={(e: any) => {
+                setSubject(e.value);
               }}
               options={[
                 { value: "Artes", label: "Artes" },
@@ -142,14 +148,16 @@ console.log(position, field, value);
                 { value: "Português", label: "Português" },
                 { value: "Química", label: "Química" },
               ]}
+              required
             />
             <Input
               name="cost"
-              label="Custo da hora por aula"
+              label="Custo da hora por aula *"
               value={cost}
               onChange={(e) => {
                 setCost(e.target.value);
               }}
+              required
             />
           </fieldset>
 
@@ -166,9 +174,9 @@ console.log(position, field, value);
                 <div key={index} className="schedule-item">
                   <Select
                     name="week-day"
-                    label="Dia da semana"
+                    label="Dia da semana *"
                     value={scheduleItem.week_day}
-                    onChange={(e) => setScheduleItemValue(index, "week_day", e.target.value)}
+                    onChange={(e: any) => setScheduleItemValue(index, "week_day", e.value)}
                     options={[
                       { value: "0", label: "Domingo" },
                       { value: "1", label: "Segunda-feira" },
@@ -178,20 +186,23 @@ console.log(position, field, value);
                       { value: "5", label: "Sexta-feira" },
                       { value: "6", label: "Sábado" },
                     ]}
+                    required
                   />
                   <Input
                     name="from"
-                    label="Das"
+                    label="Das *"
                     type="time"
                     value={scheduleItem.from}
                     onChange={(e) => setScheduleItemValue(index, "from", e.target.value)}
+                    required
                   />
                   <Input
                     name="to"
-                    label="Até"
+                    label="Até *"
                     type="time"
                     value={scheduleItem.to}
                     onChange={(e) => setScheduleItemValue(index, "to", e.target.value)}
+                    required
                   />
                 </div>
               );
