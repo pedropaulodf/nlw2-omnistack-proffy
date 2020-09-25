@@ -27,3 +27,23 @@
   right: 1.6rem;
   bottom: 0;
 }
+
+.select-block .react-select-component .react-select__menu .react-select__option--is-focused:hover {
+  font-weight: bold;
+  background-color: var(--color-line-in-white);
+}
+
+/* Scroll Bar */
+.select-block .react-select-component .react-select__menu-list::-webkit-scrollbar {
+  width: 14px;
+  height: 0px;
+}
+.select-block .react-select-component .react-select__menu-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.select-block .react-select-component .react-select__menu-list::-webkit-scrollbar-thumb {
+  background: var(--color-text-in-primary);
+}
+.select-block .react-select-component .react-select__menu-list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}

@@ -1,4 +1,4 @@
-import React, {SelectHTMLAttributes, Component} from "react";
+import React, {SelectHTMLAttributes} from "react";
 import ReactSelect from 'react-select';
 import './style.css';
 
@@ -15,14 +15,16 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 const Select: React.FC<SelectProps> = ({label, name, options, onChange, ...rest }) => {
 
   const customStyles = {
-    option: (provided: any, state: any) => ({
+    option: (provided: any, state: any ) => ({
       ...provided,
-      backgroundColor: state.isSelected ? '#EBEBF5' : 'var(--color-input-background)',
-      fontWeight: state.isSelected ? 'bold' : '100',
       padding: 12,
+      cursor: 'pointer',
       color: 'var(--color-text-base)',
+      background: state.isSelected ? 'var(--color-line-in-white)' : 'var(--color-input-background)',
+      fontWeight: state.isSelected ? 'bold' : '100',
       borderLeft: state.isSelected ? '2px solid var(--color-primary-darker)' : 'none',
     }),
+
     control: () => ({
       width: '100%',
       height: '5.6rem',
@@ -35,23 +37,25 @@ const Select: React.FC<SelectProps> = ({label, name, options, onChange, ...rest 
       justifyContent: 'center',
       border: '1px solid var(--color-line-in-white)',
     }),
-    
+
     dropdownIndicator: (base: any) => ({
       ...base,
-      color: "black"
+      color: "var(--color-primary-dark)"
     }),
   }
   
   return (
     <div className="select-block">
       <label htmlFor={name}>{label}</label>
-      <ReactSelect styles={customStyles} options={options} onChange={onChange} placeholder="Selecione..." />
-      {/* <select value="" id={name} {...rest}>
-        <option value="" disabled hidden>Selecione uma opção</option>
-        {options.map(option => {
-          return <option key={option.value} value={option.value}>{option.label}</option>
-        })}
-      </select> */}
+      <ReactSelect 
+        styles={customStyles} 
+        options={options} 
+        onChange={onChange} 
+        placeholder="Selecione..." 
+        className="react-select-component"
+        classNamePrefix="react-select"
+        isSearchable={false}
+      />
     </div>
   );
 }
