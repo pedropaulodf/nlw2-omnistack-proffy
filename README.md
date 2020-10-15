@@ -1,3 +1,5 @@
+<img src="readmeGifs/gif-web-desktop.gif" >
+
 Projeto Proffy, desenvolvido na Next Level Week #2
 
 ### Tecnologias usadas
@@ -11,6 +13,5 @@ Projeto web desenvolvido com as melhores práticas de organização de código d
 ### Resultado pessoal
 Aprendi bastante, visto que estou estudando React, Node e React Native. Abriu bastante minha mente no sentido de como funciona um projeto React e React Native completo. Após a semana, aprimorei os selects com o React-select e aprendi como gerar a apk e app-bundle do projeto mobile.
 
-### Layout web responsivo
-<img src="readmeGifs/gif-web-desktop.gif" >
+### Layout mobile
 <img src="readmeGifs/gif-web-desktop-responsivo.gif" >
